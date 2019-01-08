@@ -63,7 +63,7 @@ module Keyboard
 		D0 = 71
 		F10 = 72
 		RIGHT_CTRL = 73
-		NUM_SLASH = 74
+		SLASH = 74
 		APOSTROPHE = 75
 		LEFT_SQUARE_BRACKET = 76
 		HYPHEN = 77

@@ -3,6 +3,7 @@ GEM
   specs:
     concurrent-ruby (1.1.4)
     ffi (1.9.25)
+    generate_method (1.0.0)
     hidapi (0.1.9)
       i18n
       libusb (~> 0.5.1)
@@ -10,12 +11,15 @@ GEM
       concurrent-ruby (~> 1.0)
     libusb (0.5.1)
       ffi (>= 1.0)
+    yinum (2.2.2)
+      generate_method (~> 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   hidapi
+  yinum
 
 BUNDLED WITH
    1.17.3
