@@ -3,40 +3,12 @@
 require 'hidapi'
 require 'io/console'
 require_relative 'keyboard'
-# def checksum(data)
-#   255 - data.sum
-# end
-#
-# def checksum_packet(data)
-#   (data + [checksum(data)])
-# end
-#
-# def wrap(data)
-#   checksum_packet(data).pack('c*')
-# end
-#
-# def print_hex(data)
-#   data = data.bytes if data.is_a? String
-#   data.map {|b| sprintf(", 0x%02X", b)}.join
-# end
-#
-# brightness = 0x64
-# speed = 0x0a
-#
-# #                       x x      prog  speed brightness   col   ???
-# SOLID_GRN = [0x08, 0x00, Keyboard::Animations::STATIC, speed, brightness, Keyboard::Colours::GREEN, 0x01]
-# PRESS_FADE_GRN = [0x08, 0x00, Keyboard::Animations::FADE_ON_KEYPRESS, 0x0a, brightness, Keyboard::Colours::GREEN, 0x01]
-# PRESS_FADE_YEL = [0x08, 0x00, Keyboard::Animations::FADE_ON_KEYPRESS, speed, brightness, Keyboard::Colours::YELLOW, 0x01]
-# PRESS_FADE_RND = [0x08, 0x00, Keyboard::Animations::FADE_ON_KEYPRESS, speed, brightness, Keyboard::Colours::RANDOM, 0x01]
-# MARQUEE = [0x08, 0x00, Keyboard::Animations::MARQUEE, speed, brightness, Keyboard::Colours::PURPLE, 0x01]
-# CUSTOM_1 = [0x08, 0x00, Keyboard::Animations::CUSTOM_1, speed, brightness, 0x00, 0x01]
-#
-# # 							  custom index (zero based)
-# START_PROG = [0x12, 0x00, 0x04, 0x08, 0x00, 0x00, 0x00, 0xe1]
 
 keyboard = Keyboard.open
 begin
   puts keyboard.current_configuration_pretty
+
+  keyboard.set_configuration(Keyboard::ANIMATIONS.rotate, 0, 100, Keyboard::COLOURS.purple)
 
 rescue Exception => e
   puts "Error: #{e.message}"

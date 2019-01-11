@@ -5,7 +5,7 @@ module Keyboard
   class Device
 
     def initialize(bus_number, device_address, interface)
-      puts "Opening device..."
+      puts "Opening device #{bus_number}:#{device_address}:#{interface}..."
       @device = HIDAPI::open_path("#{bus_number.to_s(16)}:#{device_address.to_s(16)}:#{interface.to_s(16)}")
     end
 
@@ -21,6 +21,11 @@ module Keyboard
 
     def current_configuration_pretty
       current_configuration.map { |k, v| "#{k.to_s.capitalize}: #{(defined? v.name) ? v.name : v}"}
+    end
+
+    def set_configuration(animation, speed, brightness, colour)
+      data = [0x08, 0x00, animation, speed, brightness, colour, 0x01]
+      @device.send_feature_report(wrap(data))
     end
 
     def close
@@ -40,6 +45,19 @@ module Keyboard
       data = data.bytes if data.is_a? String
       data.map {|b| sprintf(", 0x%02X", b)}.join
     end
+
+    def checksum(data)
+      255 - data.sum
+    end
+
+    def checksum_packet(data)
+      (data + [checksum(data)])
+    end
+
+    def wrap(data)
+      checksum_packet(data).pack('c*')
+    end
+
 
   end
 end
