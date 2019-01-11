@@ -8,7 +8,7 @@ keyboard = Keyboard.open
 begin
   puts keyboard.current_configuration_pretty
 
-  keyboard.set_configuration(Keyboard::ANIMATIONS.rotate, 0, 100, Keyboard::COLOURS.purple)
+  keyboard.set_configuration(Keyboard::ANIMATIONS.custom_2, 0, 100, Keyboard::COLOURS.purple)
 
 rescue Exception => e
   puts "Error: #{e.message}"
@@ -20,31 +20,7 @@ end
 
 
 # begin
-#
-#   puts "Set Yellow..."
-#   dev.send_feature_report wrap(PRESS_FADE_YEL)
-#   #
-#   sleep 2
-#   #
-#   puts "Set Solid Green..."
-#   dev.send_feature_report wrap(SOLID_GRN)
-#   #
-#   sleep 2
-#   #
-#   puts "Set Green..."
-#   # dev.send_feature_report wrap(PRESS_FADE_GRN)
-#   dev.send_feature_report wrap(PRESS_FADE_RND)
-#
-#   pp print_hex(dev.get_feature_report(1))
-#
-#   pp print_hex(checksum_packet(SOLID_GRN))
-#   pp print_hex(checksum_packet(PRESS_FADE_GRN))
-#   pp print_hex(checksum_packet(PRESS_FADE_YEL))
-#   pp print_hex(checksum_packet(PRESS_FADE_RND))
-#   pp print_hex(checksum_packet(MARQUEE))
-#   pp print_hex(checksum_packet(CUSTOM_1))
-#
-#   exit 0
+
 #
 #   # 128.times do |t|
 #   t = Keyboard::Keys::NUM_END

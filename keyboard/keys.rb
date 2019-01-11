@@ -1,107 +1,107 @@
 module Keyboard
-	module Keys
-		LEFT_CTRL = 7
-		LEFT_SHIFT = 8
-		CAPS_LOCK = 9
-		TAB = 10
-		TILDE = 11
-		ESCAPE = 12
-		FN = 13
-		SPACE_UK = 14
-		A = 15
-		Q = 16
-		D1 = 17
-		F1 = 18
-		SUPER = 19
-		Z = 20
-		S = 21
-		W = 22
-		D2 = 23
-		F2 = 24
-		LEFT_ALT = 25
-		X = 26
-		D = 27
-		E = 28
-		D3 = 29
-		F3 = 30
-		C = 32
-		F = 33
-		R = 34
-		D4 = 35
-		F4 = 36
-		V = 38
-		G = 39
-		T = 40
-		D5 = 41
-		F5 = 42
-		SPACE = 43
-		B = 44
-		H = 45
-		Y = 46
-		D6 = 47
-		F6 = 48
-		N = 50
-		J = 51
-		U = 52
-		D7 = 53
-		F7 = 54
-		M = 56
-		K = 57
-		I = 58
-		D8 = 59
-		F8 = 60
-		RIGHT_ALT = 61
-		COMMA = 62
-		L = 63
-		O = 64
-		D9 = 65
-		F9 = 66
-		App = 67
-		FULL_STOP = 68
-		SEMI = 69
-		P = 70
-		D0 = 71
-		F10 = 72
-		RIGHT_CTRL = 73
-		SLASH = 74
-		APOSTROPHE = 75
-		LEFT_SQUARE_BRACKET = 76
-		HYPHEN = 77
-		F11 = 78
-		RIGHT_SQUARE_BRACKET = 82
-		EQUAL = 83
-		F12 = 84
-		LEFT = 85
-		RIGHT_SHIFT = 86
-		SHARP = 87
-		BACKSLASH = 88
-		PAUSE = 90
-		DOWN = 91
-		UP = 92
-		ENTER = 93
-		BACKSPACE = 95
-		DELETE = 96
-		RIGHT = 97
-		NUM_1 = 98
-		NUM_4 = 99
-		NUM_7 = 100
-		NUM_LOCK = 101
-		NUM_HOME = 102
-		NUM_0 = 103
-		NUM_2 = 104
-		NUM_5 = 105
-		NUM_8 = 106
-		NUM_SLASH = 107
-		NUM_PAGE_UP = 108
-		NUM_DEL = 109
-		NUM_3 = 110
-		NUM_6 = 111
-		NUM_9 = 112
-		NUM_ASTERISK = 113
-		NUM_PAGE_DOWN = 114
-		NUM_ENTER = 115
-		NUM_PLUS = 117
-		NUM_MINUS = 119
-		NUM_END = 120
-	end
+  KEYS = Enum.new(:KEYS,
+                  left_ctrl: 7,
+                  left_shift: 8,
+                  caps_lock: 9,
+                  tab: 10,
+                  tilde: 11,
+                  escape: 12,
+                  fn: 13,
+                  space_uk: 14,
+                  a: 15,
+                  q: 16,
+                  d1: 17,
+                  f1: 18,
+                  super: 19,
+                  z: 20,
+                  s: 21,
+                  w: 22,
+                  d2: 23,
+                  f2: 24,
+                  left_alt: 25,
+                  x: 26,
+                  d: 27,
+                  e: 28,
+                  d3: 29,
+                  f3: 30,
+                  c: 32,
+                  f: 33,
+                  r: 34,
+                  d4: 35,
+                  f4: 36,
+                  v: 38,
+                  g: 39,
+                  t: 40,
+                  d5: 41,
+                  f5: 42,
+                  space: 43,
+                  b: 44,
+                  h: 45,
+                  y: 46,
+                  d6: 47,
+                  f6: 48,
+                  n: 50,
+                  j: 51,
+                  u: 52,
+                  d7: 53,
+                  f7: 54,
+                  m: 56,
+                  k: 57,
+                  i: 58,
+                  d8: 59,
+                  f8: 60,
+                  right_alt: 61,
+                  comma: 62,
+                  l: 63,
+                  o: 64,
+                  d9: 65,
+                  f9: 66,
+                  app: 67,
+                  full_stop: 68,
+                  semi: 69,
+                  p: 70,
+                  d0: 71,
+                  f10: 72,
+                  right_ctrl: 73,
+                  slash: 74,
+                  apostrophe: 75,
+                  left_square_bracket: 76,
+                  hyphen: 77,
+                  f11: 78,
+                  right_square_bracket: 82,
+                  equal: 83,
+                  f12: 84,
+                  left: 85,
+                  right_shift: 86,
+                  sharp: 87,
+                  backslash: 88,
+                  pause: 90,
+                  down: 91,
+                  up: 92,
+                  enter: 93,
+                  backspace: 95,
+                  delete: 96,
+                  right: 97,
+                  num_1: 98,
+                  num_4: 99,
+                  num_7: 100,
+                  num_lock: 101,
+                  num_home: 102,
+                  num_0: 103,
+                  num_2: 104,
+                  num_5: 105,
+                  num_8: 106,
+                  num_slash: 107,
+                  num_page_up: 108,
+                  num_del: 109,
+                  num_3: 110,
+                  num_6: 111,
+                  num_9: 112,
+                  num_asterisk: 113,
+                  num_page_down: 114,
+                  num_enter: 115,
+                  num_plus: 117,
+                  num_minus: 119,
+                  num_end: 120
+  )
 end
