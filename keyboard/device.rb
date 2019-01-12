@@ -20,12 +20,53 @@ module Keyboard
     end
 
     def current_configuration_pretty
-      current_configuration.map { |k, v| "#{k.to_s.capitalize}: #{(defined? v.name) ? v.name : v}"}
+      current_configuration.map {|k, v| "#{k.to_s.capitalize}: #{(defined? v.name) ? v.name : v}"}
     end
 
     def set_configuration(animation, speed, brightness, colour)
       data = [0x08, 0x00, animation, speed, brightness, colour, 0x01]
       @device.send_feature_report(wrap(data))
+    end
+
+    def custom_map(custom_index, brightness, map)
+      # TODO Check config range
+
+      layout = Array.new(129, [0, 0, 0])
+
+      map.each do |key, colour|
+        # TODO: Validation
+        # TODO: Support groups
+
+        if key.is_a?(Array)
+          key.each {|k| layout[k.to_i] = colour}
+        elsif key.is_a?(Integer)
+          layout[key.to_i] = colour
+        else
+          raise "Unexpected key: #{key}"
+        end
+      end
+
+      set_configuration(Keyboard::ANIMATIONS.custom_1 + custom_index, 0, brightness, Keyboard::COLOURS.red)
+      start_programming(custom_index)
+      8.times do |i|
+        start = i * 16
+        data = []
+        16.times do |j|
+          idx = start + j + 1
+          r, g, b = layout[idx]
+          data += [idx, r, g, b]
+        end
+        puts "Write #{i}, len: #{data.size}, start: #{start}"
+        @device.write(data.pack('c*'))
+      end
+
+      #     TODO: Read resonse?
+      # puts "Reading..."
+      # read = dev.read
+      # puts "Read: #{read}"
+
+
+      set_configuration(Keyboard::ANIMATIONS.custom_1 + custom_index, 0, brightness, Keyboard::COLOURS.red)
     end
 
     def close
@@ -41,6 +82,7 @@ module Keyboard
     end
 
     private
+
     def print_hex(data)
       data = data.bytes if data.is_a? String
       data.map {|b| sprintf(", 0x%02X", b)}.join
@@ -58,6 +100,9 @@ module Keyboard
       checksum_packet(data).pack('c*')
     end
 
+    def start_programming(custom_index)
+      @device.send_feature_report(wrap([0x12, 0x00, custom_index, 0x08, 0x00, 0x00, 0x00]))
+    end
 
   end
 end

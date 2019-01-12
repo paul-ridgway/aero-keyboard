@@ -1,3 +1,5 @@
+require 'yinum'
+
 module Keyboard
   KEYS = Enum.new(:KEYS,
                   left_ctrl: 7,
@@ -7,7 +9,7 @@ module Keyboard
                   tilde: 11,
                   escape: 12,
                   fn: 13,
-                  space_uk: 14,
+                  backslash: 14,
                   a: 15,
                   q: 16,
                   d1: 17,
@@ -69,12 +71,11 @@ module Keyboard
                   hyphen: 77,
                   f11: 78,
                   right_square_bracket: 82,
-                  equal: 83,
+                  equals: 83,
                   f12: 84,
                   left: 85,
                   right_shift: 86,
                   sharp: 87,
-                  backslash: 88,
                   pause: 90,
                   down: 91,
                   up: 92,

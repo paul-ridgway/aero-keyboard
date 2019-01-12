@@ -1,4 +1,5 @@
 require_relative 'keyboard/keys'
+require_relative 'keyboard/groups'
 require_relative 'keyboard/animations'
 require_relative 'keyboard/colours'
 require_relative 'keyboard/device'
