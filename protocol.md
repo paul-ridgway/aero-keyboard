@@ -1,4 +1,4 @@
- The Protocol
+# The Protocol
 
 The control mechanism seems to be an 8-byte USB HID feature reports.
 
