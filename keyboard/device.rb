@@ -57,6 +57,9 @@ module Keyboard
           data += [idx, r, g, b]
         end
         puts "Write #{i}, len: #{data.size}, start: #{start}"
+        puts
+        puts pretty_hex(data)
+        puts
         @device.write(data.pack('c*'))
       end
 
@@ -83,9 +86,9 @@ module Keyboard
 
     private
 
-    def print_hex(data)
+    def pretty_hex(data)
       data = data.bytes if data.is_a? String
-      data.map {|b| sprintf(", 0x%02X", b)}.join
+      data.map {|b| sprintf("0x%02X", b)}.join(', ')
     end
 
     def checksum(data)
